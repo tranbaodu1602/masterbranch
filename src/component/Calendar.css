@@ -1,0 +1,122 @@
+.calendar-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px 120px;
+  background-color: #e8f0f8;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 450px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.card {
+  margin-top: 25px;
+}
+.ant-picker-calendar-mini .ant-picker-panel {
+  padding: 5px 30px;
+}
+.ant-picker-calendar .ant-picker-cell .ant-picker-cell-inner {
+  border-radius: 50%;
+}
+.ant-picker-calendar
+  .ant-picker-cell-in-view.ant-picker-cell-today
+  .ant-picker-cell-inner::before {
+  border: none;
+}
+
+.calendar-view {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 800px;
+  padding-top: 20px;
+}
+
+.ant-card {
+  margin-bottom: 10px;
+}
+.ant-card .ant-card-head {
+  border: none;
+}
+.ant-card-head-title,
+.event-time {
+  color: #5684ae;
+}
+.ant-card-head-title {
+  font-size: 25px;
+}
+.event-date {
+  color: gray;
+  margin-left: 5px;
+}
+.ant-card-bordered {
+  border: none;
+}
+.ant-btn {
+  border-radius: 40px;
+}
+.ant-card-inner {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.ant-btn-primary {
+  background-color: #5684ae;
+  border-color: #5684ae;
+}
+
+.ant-btn-primary:hover {
+  background-color: #466b94;
+  border-color: #466b94;
+}
+.ant-card .ant-card-body {
+  padding: 0 24px;
+}
+.ant-list-split .ant-list-item {
+  border: none;
+}
+
+/*  */
+.ant-list .ant-list-item {
+  display: inline;
+}
+.ant-card .ant-card-head {
+  background-color: transparent;
+  min-height: 35px;
+  font-weight: 700;
+}
+.event-card {
+  position: relative;
+  padding: 15px 0;
+}
+.icon-wrapper {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: #5684ae;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-icon {
+  font-size: 20px;
+  color: #ffff;
+}
+
+.event-profile {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/*  */

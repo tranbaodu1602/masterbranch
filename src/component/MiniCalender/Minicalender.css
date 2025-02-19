@@ -1,0 +1,30 @@
+.custom-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c5b85;
+  padding: 10px 0;
+}
+.nav-icon {
+  font-size: 18px;
+  cursor: pointer;
+  color: #2c5b85;
+}
+
+.nav-icon:hover {
+  color: #1a3e6e;
+}
+
+.month-year {
+  min-width: 100px;
+  text-align: center;
+}
+
+.rbc-month-header {
+  color: gray;
+  font-size: 25px;
+  height: 40px;
+}

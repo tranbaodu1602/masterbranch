@@ -1,0 +1,47 @@
+.custom-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  background: white;
+  color: #5684ae;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.custom-toolbar-left {
+  display: flex;
+  gap: 25px;
+}
+.today-btn {
+  background: #fff;
+  color: #5684ae;
+  border: 1px solid #5684ae;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.navigation > button {
+  border: none;
+  color: #5684ae;
+}
+
+.month-year {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.view-selector {
+  width: 100px;
+}
+.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: #5684ae;
+  color: #ffff;
+}
+.ant-select .ant-select-arrow {
+  color: #ffff;
+  font-size: 14px;
+}

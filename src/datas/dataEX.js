@@ -1,0 +1,37 @@
+export const eventsData = [
+  {
+    id: 1,
+    title: "First Session with Alex Stan",
+    type: "appointment",
+    date: "2025-02-19",
+    time: "09:00 - 09:30 AM",
+    timezone: "GMT+6",
+    client: { name: "Alex Stan", profile_url: "/clients/alex-stan" },
+  },
+  {
+    id: 2,
+    title: "Webinar: How to cope with trauma in professional life",
+    type: "event",
+    date: "2025-02-20",
+    time: "09:00 - 09:30 AM",
+    timezone: "GMT+6",
+    event_url: "https://www.eventbrite.sg/sample-event",
+  },
+  {
+    id: 3,
+    title: "Charity Session",
+    type: "event",
+    date: "2025-02-19",
+    time: "10:00 - 11:30 AM",
+    timezone: "GMT+6",
+  },
+  {
+    id: 4,
+    title: "Webinar: How to cope with trauma in professional life",
+    type: "event",
+    date: "2025-02-09",
+    time: "09:00 - 09:30 AM",
+    timezone: "GMT+6",
+    event_url: "https://www.eventbrite.sg/sample-event",
+  },
+];
