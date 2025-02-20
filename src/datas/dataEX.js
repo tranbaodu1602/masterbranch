@@ -7,6 +7,7 @@ export const eventsData = [
     time: "09:00 - 09:30 AM",
     timezone: "GMT+6",
     client: { name: "Alex Stan", profile_url: "/clients/alex-stan" },
+    tatus: true,
   },
   {
     id: 2,
@@ -15,7 +16,8 @@ export const eventsData = [
     date: "2025-02-20",
     time: "09:00 - 09:30 AM",
     timezone: "GMT+6",
-    event_url: "https://www.eventbrite.sg/sample-event",
+    client: "",
+    tatus: true,
   },
   {
     id: 3,
@@ -24,14 +26,17 @@ export const eventsData = [
     date: "2025-02-19",
     time: "10:00 - 11:30 AM",
     timezone: "GMT+6",
+    client: "",
+    tatus: true,
   },
   {
     id: 4,
-    title: "Webinar: How to cope with trauma in professional life",
+    title: "Webinar: How to cope with trauma ",
     type: "event",
     date: "2025-02-09",
     time: "09:00 - 09:30 AM",
     timezone: "GMT+6",
-    event_url: "https://www.eventbrite.sg/sample-event",
+    client: { name: "Alex Stan", profile_url: "/clients/alex-stan" },
+    tatus: true,
   },
 ];

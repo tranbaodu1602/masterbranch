@@ -63,13 +63,17 @@ const CalendarView = () => {
             renderItem={(event) => {
               const hasClientProfile = event.client && event.client.profile_url;
               const backgroundColor = hasClientProfile ? "#FFD1DC" : "#FFA500";
+              const boderColor = hasClientProfile ? "#466b94" : "#85b1e4";
               return (
                 <List.Item className="event-item">
                   <Card
                     type="inner"
                     title={event.title}
                     className="event-card"
-                    style={{ borderLeft: `6px solid #466b94`, backgroundColor }}
+                    style={{
+                      borderLeft: `6px solid ${boderColor}`,
+                      backgroundColor,
+                    }}
                   >
                     <p className="event-time">
                       {event.time} ({event.timezone})
@@ -85,10 +89,6 @@ const CalendarView = () => {
                           View Client Profile
                         </a>
                       </div>
-                    )}
-
-                    {event.event_url && (
-                      <a href={event.event_url}>View Event</a>
                     )}
 
                     {hasClientProfile && (

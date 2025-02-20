@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 30px;
   font-size: 16px;
   font-weight: bold;
   color: #2c5b85;
@@ -19,7 +19,7 @@
 }
 
 .month-year {
-  min-width: 100px;
+  min-width: 80px;
   text-align: center;
 }
 

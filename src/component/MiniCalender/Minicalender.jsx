@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
@@ -6,6 +6,12 @@ import "./Minicalender.css";
 
 const MiniCalendar = ({ selectedDate, setSelectedDate }) => {
   const [currentDate, setCurrentDate] = useState(dayjs());
+
+  useEffect(() => {
+    if (selectedDate) {
+      setCurrentDate(dayjs(selectedDate));
+    }
+  }, [selectedDate]);
 
   const onPrev = () => setCurrentDate(currentDate.subtract(1, "month"));
   const onNext = () => setCurrentDate(currentDate.add(1, "month"));
