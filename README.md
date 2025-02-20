@@ -56,7 +56,7 @@ trong đó
 
 ###
 
-![Alt text](../assets/GiaoDien.png)
+Ảnh giao diện --> src/assets/GiaoDien.png
 
 ### cách sử lí sự kiện lập lại
 
