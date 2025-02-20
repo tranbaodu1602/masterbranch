@@ -8,63 +8,82 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000]
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Cấu trúc dữ liệu đề xuất:
 
-### `npm test`
+export const eventsData = [
+{
+id: 1,
+title: "First Session with Alex Stan",
+type: "appointment",
+date: "2025-02-19",
+time: "09:00 - 09:30 AM",
+timezone: "GMT+6",
+client: { name: "Alex Stan", profile_url: "/clients/alex-stan" },
+tatus: true,
+point:"event1",
+recurring: null
+},
+{
+id: 2,
+title: "Webinar: How to cope with trauma in professional life",
+type: "event",
+date: "2025-02-20",
+time: "09:00 - 09:30 AM",
+timezone: "GMT+6",
+client: null,
+tatus: true,
+point:"event2",
+recurring: {
+"frequency": "weekly",
+"interval": 1,
+"endDate": "2025-06-01"
+}
+},
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+trong đó
 
-### `npm run build`
+- type : dùng để phân loại sự kiện
+- date,time : dùng để xác định event nằm ở đâu tại big-calender
+- tatus: có thể lưu trạng thái khi sự kiện đã qua thì false.
+- point: lưu enpoint khi click vào sự kiện có thể sang trang khác dùng point này hoặc id để call API lấy description của event đó
+- recurring: lưu sự kiện lập lại:
+  - frequency: loại lập lại tuần\tháng
+  - interval": tần suất 1,2,3... trong tuần\tháng
+  - endDate": ngày kết thúc việc lập lại
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Alt text](./images/GiaoDien.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### cách sử lí sự kiện lập lại
 
-### `npm run eject`
+Xử lý trên Frontend
+Khi nhận sự kiện có recurring, sử dụng thư viện như rrule để tự tạo danh sách các ngày xuất hiện.
+import { RRule } from "rrule";
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+const rule = new RRule({
+freq: RRule.WEEKLY,
+interval: 1,
+dtstart: new Date("2025-02-20T09:00:00"),
+until: new Date("2025-06-01T09:30:00"),
+});
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const recurringDates = rule.all();
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Những điều mình học được từ dự án
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Cách sử dụng react-big-calendar để hiển thị sự kiện
+Cách sử dụng moment / dayjs để xử lý thời gian
 
-## Learn More
+### Kế hoạch phát triển tiếp theo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Thêm tính năng thông báo cho sự kiện sắp diễn ra.
+- Thêm bộ lọc sự kiện theo type (event, meeting, v.v.).
+- Cung cấp API để thêm/xóa/sửa sự kiện trực tiếp từ UI. và nếu tatus là false thì không upate được.
+- Tạo thêm giao diện như Event_des-mô tả sự kiện
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🙌 Cảm ơn!
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cảm ơn Anh/Chị đã dành thời gian đọc README này!

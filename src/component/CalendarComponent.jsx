@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Calendar as BigCalendar, momentLocalizer } from "react-big-calendar";
 import { Card, Button, List, Avatar } from "antd";
@@ -13,13 +13,24 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 const localizer = momentLocalizer(moment);
 
 const CalendarView = () => {
-  const [selectedDate, setSelectedDate] = useState(
-    moment().format("YYYY-MM-DD")
-  );
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [filteredEvents, setFilteredEvents] = useState(eventsData);
+  const [viewAll, setViewAll] = useState(true);
+
   const [view, setView] = useState("month");
   const [date, setDate] = useState(new Date());
-
-  const formattedDate = moment(selectedDate).format("dddd, D MMM");
+  useEffect(() => {
+    if (selectedDate) {
+      const filtered = eventsData.filter(
+        (event) => event.date === selectedDate
+      );
+      setFilteredEvents(filtered);
+      setViewAll(false);
+    } else {
+      setFilteredEvents(eventsData);
+      setViewAll(true);
+    }
+  }, [selectedDate]);
 
   const events = eventsData.map((event) => ({
     title: event.title,
@@ -36,11 +47,14 @@ const CalendarView = () => {
 
   const handleDateChange = (newDate) => {
     setSelectedDate(moment(newDate).format("YYYY-MM-DD"));
-    setDate(new Date(newDate));
   };
 
   const OnTap = () => {
     alert("sử dụng navigate trong react-router chuyển trang mới...");
+  };
+
+  const handleViewAll = () => {
+    setSelectedDate(null);
   };
 
   return (
@@ -54,12 +68,20 @@ const CalendarView = () => {
 
         <Card
           title="Upcoming Events"
-          extra={<Button type="primary">View All</Button>}
+          extra={
+            <Button type="primary" onClick={handleViewAll}>
+              View All
+            </Button>
+          }
           className="upcoming-events"
         >
-          <p className="event-date">{formattedDate}</p>
+          <p className="event-date">
+            {viewAll
+              ? "All Events"
+              : moment(selectedDate).format("dddd, D MMM")}
+          </p>
           <List
-            dataSource={eventsData}
+            dataSource={filteredEvents}
             renderItem={(event) => {
               const hasClientProfile = event.client && event.client.profile_url;
               const backgroundColor = hasClientProfile ? "#FFD1DC" : "#FFA500";
