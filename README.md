@@ -12,35 +12,36 @@ Open [http://localhost:3000]
 
 ### Cấu trúc dữ liệu đề xuất:
 
-export const eventsData = [
-{
-id: 1,
-title: "First Session with Alex Stan",
-type: "appointment",
-date: "2025-02-19",
-time: "09:00 - 09:30 AM",
-timezone: "GMT+6",
-client: { name: "Alex Stan", profile_url: "/clients/alex-stan" },
-tatus: true,
-point:"event1",
+export const eventsData = [<br>
+{<br>
+id: 1,<br>
+title: "First Session with Alex Stan",<br>
+type: "appointment",<br>
+date: "2025-02-19",<br>
+time: "09:00 - 09:30 AM",<br>
+timezone: "GMT+6",<br>
+client: { name: "Alex Stan", profile_url: "/clients/alex-stan" },<br>
+tatus: true,<br>
+point:"event1",<br>
 recurring: null
-},
+},<br>
 {
-id: 2,
-title: "Webinar: How to cope with trauma in professional life",
-type: "event",
-date: "2025-02-20",
-time: "09:00 - 09:30 AM",
-timezone: "GMT+6",
-client: null,
-tatus: true,
-point:"event2",
-recurring: {
-"frequency": "weekly",
-"interval": 1,
-"endDate": "2025-06-01"
+id: 2,<br>
+title: "Webinar: How to cope with trauma in professional life",<br>
+type: "event",<br>
+date: "2025-02-20",<br>
+time: "09:00 - 09:30 AM",<br>
+timezone: "GMT+6",<br>
+client: null,<br>
+tatus: true,<br>
+point:"event2",<br>
+recurring: {<br>
+"frequency": "weekly",<br>
+"interval": 1,<br>
+"endDate": "2025-06-01"<br>
+}<br>
 }
-},
+,]
 
 trong đó
 
@@ -55,26 +56,26 @@ trong đó
 
 ###
 
-![Alt text](./images/GiaoDien.png)
+![Alt text](./assets/GiaoDien.png)
 
 ### cách sử lí sự kiện lập lại
 
-Xử lý trên Frontend
-Khi nhận sự kiện có recurring, sử dụng thư viện như rrule để tự tạo danh sách các ngày xuất hiện.
-import { RRule } from "rrule";
+Xử lý trên Frontend<br>
+Khi nhận sự kiện có recurring, sử dụng thư viện như rrule để tự tạo danh sách các ngày xuất hiện.<br>
+import { RRule } from "rrule";<br>
 
-const rule = new RRule({
-freq: RRule.WEEKLY,
-interval: 1,
-dtstart: new Date("2025-02-20T09:00:00"),
-until: new Date("2025-06-01T09:30:00"),
-});
+const rule = new RRule({<br>
+freq: RRule.WEEKLY,<br>
+interval: 1,<br>
+dtstart: new Date("2025-02-20T09:00:00"),<br>
+until: new Date("2025-06-01T09:30:00"),<br>
+});<br>
 
 const recurringDates = rule.all();
 
 ### Những điều mình học được từ dự án
 
-Cách sử dụng react-big-calendar để hiển thị sự kiện
+Cách sử dụng react-big-calendar để hiển thị sự kiện<br>
 Cách sử dụng moment / dayjs để xử lý thời gian
 
 ### Kế hoạch phát triển tiếp theo
