@@ -12,13 +12,27 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 
+const events = eventsData.map((event) => ({
+  title: event.title,
+  start: moment(
+    `${event.date} ${event.time.split(" - ")[0]}`,
+    "YYYY-MM-DD hh:mm A"
+  ).toDate(),
+  end: moment(
+    `${event.date} ${event.time.split(" - ")[1]}`,
+    "YYYY-MM-DD hh:mm A"
+  ).toDate(),
+  hasClientProfile: !!event.client?.profile_url,
+}));
+
 const CalendarView = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [filteredEvents, setFilteredEvents] = useState(eventsData);
   const [viewAll, setViewAll] = useState(true);
-
+  // big-Calender
   const [view, setView] = useState("month");
   const [date, setDate] = useState(new Date());
+
   useEffect(() => {
     if (selectedDate) {
       const filtered = eventsData.filter(
@@ -32,27 +46,14 @@ const CalendarView = () => {
     }
   }, [selectedDate]);
 
-  const events = eventsData.map((event) => ({
-    title: event.title,
-    start: moment(
-      `${event.date} ${event.time.split(" - ")[0]}`,
-      "YYYY-MM-DD hh:mm A"
-    ).toDate(),
-    end: moment(
-      `${event.date} ${event.time.split(" - ")[1]}`,
-      "YYYY-MM-DD hh:mm A"
-    ).toDate(),
-    hasClientProfile: !!event.client?.profile_url,
-  }));
-
+  //
   const handleDateChange = (newDate) => {
     setSelectedDate(moment(newDate).format("YYYY-MM-DD"));
+    setDate(new Date(newDate));
   };
-
   const OnTap = () => {
     alert("sử dụng navigate trong react-router chuyển trang mới...");
   };
-
   const handleViewAll = () => {
     setSelectedDate(null);
   };
@@ -144,7 +145,7 @@ const CalendarView = () => {
               style: {
                 backgroundColor,
                 color: "#fff",
-                borderLeft: "4px solid #5684ae",
+                borderLeft: "3px solid #5684ae",
                 borderRadius: "5px",
                 marginTop: "2px",
                 padding: "4px 8px",
