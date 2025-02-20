@@ -56,7 +56,7 @@ trong đó
 
 ###
 
-![Alt text](./assets/GiaoDien.png)
+![Alt text](../assets/GiaoDien.png)
 
 ### cách sử lí sự kiện lập lại
 
